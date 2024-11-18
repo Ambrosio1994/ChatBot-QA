@@ -3,8 +3,10 @@ from llama_index.core.llms import ChatMessage
 
 import streamlit as st
 from dotenv import load_dotenv
+import os 
 
 load_dotenv()
+ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
 
 st.set_page_config(page_title="QA", page_icon="🦙")
 st.title("ChatBot Basic With Llama Index 🦙")
@@ -25,6 +27,7 @@ def response(user_query, temperature: float):
     llm = Anthropic(model="claude-3-haiku-20240307",
                     max_tokens=1024,
                     temperature=temperature,
+                    api_key=ANTHROPIC_API_KEY
                     )
     
     system_prompt = "You are a helpful assistant who answers users' questions."
