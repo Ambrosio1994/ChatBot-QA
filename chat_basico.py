@@ -39,11 +39,6 @@ def response(user_query: str, temperature: float) -> str:
     Instructions:
     1. When asked a question, analyze it carefully.
     2. Limit your answers to 3 paragraphs maximum.
-
-    Before providing your final answer, show:
-    - Your analysis of the question, breaking it down into key components
-    - An outline of the main points to be addressed in the answer
-    - How you are formulating your answer based on this information.
     """
     messages: list[ChatMessage] = [
         ChatMessage(role="system", content=system_prompt),
