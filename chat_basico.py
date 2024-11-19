@@ -12,7 +12,7 @@ st.set_page_config(page_title="QA", page_icon="🦙")
 st.title("ChatBot Basic With Llama Index 🦙")
 
 
-def response(user_query, temperature: float):
+def response(user_query: str, temperature: float) -> str:
     """
     This function takes in a user query and a temperature value and calls 
     the Anthropic model to generate a response. The response is then returned.
@@ -24,22 +24,35 @@ def response(user_query, temperature: float):
     Returns:
         str: The response from the Anthropic model.
     """
-    llm = Anthropic(model="claude-3-haiku-20240307",
-                    max_tokens=1024,
-                    temperature=temperature,
-                    api_key=ANTHROPIC_API_KEY
-                    )
+    llm: Anthropic = Anthropic(
+        model="claude-3-haiku-20240307",
+        max_tokens=1024,
+        temperature=temperature,
+        api_key=ANTHROPIC_API_KEY
+    )
     
-    system_prompt = "You are a helpful assistant who answers users' questions."
-    messages = [
+    system_prompt: str = """
+    You are an AI assistant specialized in answering questions. 
+    Remember: you must always answer in Brazilian Portuguese and limit your answers 
+    to 3 paragraphs maximum.
+
+    Instructions:
+    1. When asked a question, analyze it carefully.
+    2. Limit your answers to 3 paragraphs maximum.
+
+    Before providing your final answer, show:
+    - Your analysis of the question, breaking it down into key components
+    - An outline of the main points to be addressed in the answer
+    - How you are formulating your answer based on this information.
+    """
+    messages: list[ChatMessage] = [
         ChatMessage(role="system", content=system_prompt),
         ChatMessage(role="user", content=user_query)
     ]
 
-    resp = llm.chat(messages).message.content
+    resp: str = llm.chat(messages).message.content
     return resp
     
-
 message_init = "Hi, I'm your virtual assistant! How can I help you today?"
 
 def clear_chat_history():
