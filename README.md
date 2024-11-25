@@ -1,6 +1,8 @@
 # 🤖 ChatBot Basic With Llama Index
 
-<img src="./llamaindex.webp" alt="LlamaIndex Logo" height="400">
+<div align="center">
+  <img src="./llamaindex.webp" alt="LlamaIndex Logo" height="300">
+</div>
 
 Um chatbot simples e funcional que utiliza a biblioteca **Llama Index** para responder a perguntas de maneira interativa e eficiente. Construído com **Streamlit**, este chatbot é alimentado por um modelo de linguagem **Anthropic**, oferecendo respostas dinâmicas e adaptáveis.
 
