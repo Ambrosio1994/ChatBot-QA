@@ -26,6 +26,6 @@ Certifique-se de ter as seguintes dependências instaladas:
 - **Python:** Versão 3.8 ou superior.
 - **Streamlit:** Versão 0.84 ou superior.
 - **Llama Index:** Versão 0.1.0 ou superior.
-- **Modelo Anthropic:** Consulte a [documentação do Llama Index](https://llama-index.readthedocs.io/en/latest/) para mais detalhes.
+- **Modelo Anthropic:** Consulte a [documentação do Llama Index](https://www.llamaindex.ai/) para mais detalhes.
 
 ---
